@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const basePath =
+  process.env.NEXT_PUBLIC_BASE_PATH || (process.env.NODE_ENV === "production" ? "/KP-Traders" : "");
 const isStaticExport = true;
 
 const nextConfig = {
