@@ -20,7 +20,9 @@ export function CountUp({
 }) {
   const reduce = useReducedMotion();
   const target = useMemo(() => parseTarget(value), [value]);
-  const [display, setDisplay] = useState(reduce ? value : "0");
+  // Render the final value by default so static exports (and no-JS scenarios) look correct.
+  // We'll animate client-side once the value is in view.
+  const [display, setDisplay] = useState(value);
   const started = useRef(false);
   const ref = useRef<HTMLSpanElement | null>(null);
 
